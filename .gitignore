@@ -1,0 +1,72 @@
+# =========================================================
+# Secretos y entorno — nunca se versionan
+# =========================================================
+.env
+.env.*
+!.env.example
+
+# =========================================================
+# Jupyter — evita notebooks duplicados (ADR-0004)
+# =========================================================
+.ipynb_checkpoints/
+*-checkpoint.ipynb
+Untitled*.ipynb
+*-Copy*.ipynb
+*([0-9]).ipynb
+# Salidas locales de los labs: al S3 o aquí, nunca junto al notebook
+labs/**/outputs/
+
+# =========================================================
+# Datos — raw no se versiona (espejo de s3://loanops-raw)
+# =========================================================
+data/raw/*
+!data/raw/.gitkeep
+
+# =========================================================
+# Artefactos de modelos y experimentos
+# =========================================================
+*.tar.gz
+*.joblib
+*.pkl
+mlruns/
+
+# =========================================================
+# Python
+# =========================================================
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+dist/
+build/
+
+# =========================================================
+# Node (apps/web, futuro)
+# =========================================================
+node_modules/
+.next/
+coverage/
+
+# =========================================================
+# IaC / AWS (reservado, ADR-0002)
+# =========================================================
+cdk.out/
+.aws-sam/
+.terraform/
+*.tfstate
+*.tfstate.*
+
+# =========================================================
+# Sistema operativo y editores
+# =========================================================
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/*
+!.vscode/extensions.json

@@ -1,0 +1,16 @@
+# Finales de línea consistentes entre Windows, Linux y SageMaker Studio
+* text=auto eol=lf
+
+# Notebooks: diff y merge legibles cuando nbdime esté configurado (Lab 1:
+# `nbdime config-git --enable`). Sin nbdime, git usa el diff de texto normal.
+*.ipynb text eol=lf diff=jupyternotebook merge=jupyternotebook
+
+*.sh   text eol=lf
+*.ps1  text eol=crlf
+
+# Binarios
+*.pdf     binary
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.parquet binary
