@@ -1,0 +1,29 @@
+# Configuración de ruff (linter + formateador). Estándares: ver CLAUDE.md
+# Uso: ruff check --fix .   ·   ruff format .
+# En cada commit lo corre pre-commit (se activa en el Lab 1).
+
+target-version = "py312"
+line-length = 100
+
+[lint]
+select = [
+  "E", "W", # pycodestyle: estilo
+  "F",      # pyflakes: errores reales (imports sin usar, variables no definidas)
+  "I",      # isort: orden de imports
+  "UP",     # pyupgrade: sintaxis moderna de Python
+  "B",      # bugbear: errores sutiles (mutables por defecto, except amplio)
+  "S",      # bandit: seguridad (secretos, subprocess, asserts)
+  "SIM",    # simplificaciones
+]
+ignore = [
+  "E501", # el formateador ya se encarga del largo de línea
+]
+
+[lint.per-file-ignores]
+# En tests, assert es la herramienta, no un problema
+"**/tests/**" = ["S101"]
+# En notebooks: imports a media celda y exploración suelta
+"labs/**/*.ipynb" = ["E402", "F401", "S101"]
+
+[format]
+docstring-code-format = true

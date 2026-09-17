@@ -44,6 +44,7 @@ LoanOps es un banco que:
 - Los notebooks van **solo en `labs/`**, uno por lab ([ADR-0004](docs/adr/0004-notebooks-policy.md)).
 - La lógica reutilizable va en `services/` o `packages/`, nunca en un notebook.
 - Cada decisión de arquitectura queda en un ADR en [docs/adr/](docs/adr/).
+- Los estándares de código están en [CLAUDE.md](CLAUDE.md) y `ruff` los aplica en cada commit. Antes de un push con código, pasa `/code-review`.
 
 ## Calendario
 

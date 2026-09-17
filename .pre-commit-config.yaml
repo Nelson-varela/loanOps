@@ -1,6 +1,16 @@
 # Se activa en el Lab 1:  pip install pre-commit && pre-commit install
 # Actualizar versiones:   pre-commit autoupdate
 repos:
+  # Linter y formateador de Python (config en ruff.toml, estándares en CLAUDE.md)
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.16.8
+    hooks:
+      - id: ruff-check
+        args: ["--fix"]
+      - id: ruff-format
+        # Solo Python y notebooks: por defecto también tocaría los .md del repo
+        types_or: [python, pyi, jupyter]
+
   # Limpia los outputs de los notebooks antes de cada commit (ADR-0004)
   - repo: https://github.com/kynan/nbstripout
     rev: 0.8.1
