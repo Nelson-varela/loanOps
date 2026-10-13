@@ -36,3 +36,7 @@ Proyecto de estudio para la certificación AWS MLA-C02 (plan en [docs/loanops-aw
 3. Lógica reutilizable atrapada en un notebook, o código duplicado entre notebook y servicio.
 4. Errores de correctitud: fugas de datos entre train y test, métricas mal elegidas con clases desbalanceadas, manejo de fallos ausente en llamadas a AWS.
 5. Complejidad que no hace falta: abstracciones para un solo uso, configuración que nadie lee.
+
+## Como responderme a mi? 
+
+1. siempre se especifico con lo que hagas, y trata de explicarme el codigo que generes, especialmente  las partes mas relevantes. 

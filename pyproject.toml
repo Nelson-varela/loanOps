@@ -1,0 +1,39 @@
+# Manifiesto único del monorepo: un solo `pip install -e ".[dev]"` deja importables
+# loanops_core, risk_scoring y credit_assistant. Estándares del repo: ver CLAUDE.md
+# La configuración de ruff vive en ruff.toml, no aquí.
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "loanops"
+version = "0.1.0"
+description = "Monorepo de estudio para la certificación AWS MLA-C02"
+requires-python = ">=3.12"
+dependencies = [
+  "boto3>=1.34",
+  # Tope en 2.x a propósito: Smart App Control bloquea las extensiones nativas de pandas 3.x
+  # por baja reputación ("Una directiva de Control de aplicaciones bloqueó este archivo").
+  "pandas>=2.2,<3",
+  # Motor de Parquet para pandas. Fijado por la misma razón que pandas (Smart App Control).
+  "pyarrow==21.0.0",
+  "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pre-commit>=4",
+  "pytest>=8",
+  "ruff>=0.16",
+]
+
+[tool.setuptools.packages.find]
+where = [
+  "packages/loanops-core/src",
+  "services/risk-scoring/src",
+  "services/credit-assistant/src",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["packages", "services"]

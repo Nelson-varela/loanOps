@@ -36,3 +36,10 @@ DataBrew profile job → 5 reglas de Glue Data Quality en DQDL → reporte de Cl
 - **Qué falló** (si se acabó la caja: qué falló → 20 min de documentación → seguir):
 - **Lo que me llevo para el examen:**
 - **Costo aproximado (USD):**
+
+
+productive loans → ~22.25% default
+non-productive  → ~16.34%
+
+female → ~18.30%
+male   → ~16.43%
